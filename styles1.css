@@ -49,7 +49,6 @@ ul{
     cursor: pointer;
     position: relative;
 }
-
 .nav-links .dropdown > a:after {
     content: "\25BE"; /* Unicode code for downward-pointing triangle */
     margin-left: 5px;
@@ -285,13 +284,13 @@ li {
 }
 .Explore-Amenities{
     text-align:center;
-    font-size:4vmin;
+    font-size:6vmin;
     color:rgba(12, 12, 12, 0.764);
     margin-bottom: 30px;
 }
 .title-underline {
     width: 250px;
-    height: 4px;
+    height: 5px;
     background: #331D2C;
     margin: 10px auto;
     border-radius:5px;
@@ -330,7 +329,7 @@ li {
 }
 .content-col h1{
     font-size: 7vmin;
-    color:rgba(12, 12, 12, 0.764);
+    color:rgba(12, 12, 12, 0.764); 
 }
 .image.col{
     width:60%;
@@ -341,6 +340,7 @@ li {
     height:4px;
     background:#331D2C;
     margin:50px auto;
+
     border-radius:5px;
     margin-left:-1px;
 }
@@ -536,6 +536,7 @@ li {
 }
 .dropdown-menu{
     display:none;
+    z-index: 2;
 }
 .menubar ul li:hover .dropdown-menu{
     display:block;
@@ -666,7 +667,7 @@ li {
 }
 .text-container h1 {
     font-size:40px;
-    color:#272829;
+    color:#474849;
     margin-bottom: 10px;
 }
 .H8{
@@ -700,7 +701,7 @@ li {
 }
 .text-container-right h1 {
     font-size: 40px;
-    color:#272829;
+    color:#474849;
     margin-bottom: 10px;
 }
 .H9{
@@ -735,7 +736,7 @@ li {
 }
 .text-container3 h1 {
     font-size:40px;
-    color:#272829;
+    color:#474849;
     margin-bottom: 10px;
 }
 .H10{
@@ -769,7 +770,7 @@ li {
 }
 .text-container-right1 h1 {
     font-size:40px;
-    color:#272829;
+    color:#474849;
     margin-bottom: 10px;
 }
 .H11{
@@ -804,7 +805,7 @@ li {
 }
 .text-container4 h1 {
     font-size:40px;
-    color:#272829;
+    color:#474849;
     margin-bottom: 10px;
 }
 .H12{
@@ -1049,11 +1050,32 @@ li {
 body {
     background-color: #f0f0f0;
 }
+/*Background container for the forms*/
+.background-container1 {
+    position: relative;
+    width: 100%;
+    height: 180vh;
+    overflow: hidden;
+}
+.background-image1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('Images-Booking/Background.jpg') center/cover no-repeat;
+    z-index: 0;
+}
+/*Content container for the reservations form*/
+.content-container {
+    position: relative;
+    z-index: 1;
+}
 fieldset {
     border: 1px solid #ccc;
     border-radius: 10px;
     padding: 20px;
-    margin-top:-10px;
+    margin-top: 20px;
     margin-left: 60px;
     margin-right:60px;
     width: 100%;
@@ -1067,14 +1089,26 @@ legend {
     font-size: 30px;
     font-weight: bold;
     color: #4d4e4f;
-    margin-bottom: -40px;
 }
 label {
+    font-size: 15px;
     display: block;
     color: #272829;
     font-weight: bold;
-    margin-top: 15px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.date-container {
+    align-items: center;
+}
+.date-field {
     margin-bottom: 10px;
+}
+input[type="date"] {
+    width: 50%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
 }
 input[type="text"],
 input[type="email"],
@@ -1084,31 +1118,50 @@ select {
     padding: 10px;
     margin-top: 5px;
     border: 1px solid #ccc;
-    border-radius: 5px;
 }
-input[type="submit"] {
-    background-color: #272829;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-input[type="submit"]:hover {
-    background-color: #4d4e4f;
+.special-requirements{
+    margin-top: 20px;
 }
 select option {
     padding: 10px;
 }
-br {
-    margin-bottom: 10px;
+/*Current booking details area's styling begins*/
+.booking-section {
+    font-style: italic;
+    color: #474849;
+    margin-bottom: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
-.adventures-options {
+h2 {
+    margin-top: 0;
+    font-size: 3vmin;
+}
+.booking-section-h2{
+    font-style: normal;
+}
+/*Current booking area's paragragh*/
+.booking-info {
+    font-size: 18px;
+}
+/*Book Now button*/
+.bookBtn{
+    display:inline-block;
+    background-color:#272829;
+    border:none;
+    padding:8px 15px;
+    width: 120px;
+    color:#F5F5F5;
+    text-align:center;
+    margin-bottom: 30px;
+}
+/*Adventure form's styling*/
+.adventures-option {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    margin-top: 10px;
+    margin-top: 7px;
 }
 .adventure-option {
     display: flex;
@@ -1116,24 +1169,354 @@ br {
     margin-right:10px;
     margin-left: 5px;
 }
-/* Styles for background and content containers */
-.background-container1 {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
+/*Current Adventure booking area's styling begins*/
+.adventure-section {
+    color:#474849;
+    font-style:italic;
+    margin-bottom: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
-.background-image1 {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url('Images-Booking/Background.jpg') center/cover no-repeat;
+h2 {
+    margin-top: 0;
+    font-size: 3vmin;
 }
-.content-container {
-    position: relative;
-    z-index: 1;
+.adventure-section-h2{
+    font-style: normal;
+}
+/*Current Adventure booking area's paragragh*/
+.booking-infoA {
+    font-size: 18px;
+}
+/*Add to adventures button*/
+.advBtn{
+    display:inline-block;
+    background-color:#272829;
+    border:none;
+    padding:8px 15px;
+    width: 145px;
+    color:#F5F5F5;
+    text-align:center;
+}
+/*Update overall booking and adventures' tables' styling begins*/
+.tables-container3 {
+    max-width: 1000px;
+    margin: 0 auto; /* Center the container horizontally */
+    text-align: center;
+  }
+.table-container3 {
+    max-width: 99%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color:#fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+/*Loyalty points box's styling*/
+.loyalty-box {
+    max-width: 500px;
+    margin-left: 250px;
+    background-color:#fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+.loyalty-box h2 {
+    margin-top: -10px;
+    margin-bottom: 10px;
+    color:#474849;
+}
+#loyaltyPointsText {
+    font-size: 16px;
+    color: #666;
+}
+#loyaltyPointsValue {
+    font-weight: bold;
+    color:#47253d   ;
+}
+.booking-table,
+.adventure-table {
+  border-collapse: collapse;
+  width: 90%;
+  margin-right: 10px;
+}
+.booking-table th,
+.booking-table td,
+.adventure-table th,
+.adventure-table td {
+  border: 1px solid #dddddd;
+  padding: 8px;
+  text-align: center;
+}
+.booking-table th,
+.adventure-table th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+/*Total room reservation table's styling begins*/
+#total-bill-room-reservations {
+    margin-top: 20px;
+    max-width: 1500px;
+    margin-left:-60px;
+}
+#total-bill-room-reservations h2 {
+    font-size: 30px;
+    color:#474849;
+    margin-left: 550px;
+
+}
+.H20 {
+    width:150px;
+    height:4px;
+    background:#331D2C;
+    margin:10px auto;
+    border-radius:5px;
+}
+#room-reservations-table {
+    border-collapse: collapse;
+    width: 98%;
+}
+
+#room-reservations-table th,
+#room-reservations-table td {
+    border: 1px solid #dddddd;
+    max-width: 250px;
+    text-align: center;
+    font-size: 15px;
+    padding: 8px;
+}
+
+#room-reservations-table th {
+    background-color: #f2f2f2;
+}
+
+/* Styling alternating rows*/
+#room-reservations-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+/*Total bill for the room area's styling*/
+.Roomcost-box {
+    max-width: 500px;
+    margin: 20px;
+    margin-left:0px;
+    background-color:#4d4e4f;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+.Roomcost-box h2 {
+    font-size: 20px;
+    margin-top: -10px;
+    margin-bottom: 10px;
+    color:#c5c7c8;
+}
+#TotalCostText {
+    font-size: 15px;
+    color: #dddddd;
+}
+/*Total adventure booking table's styling begins*/
+#total-bill-adventures-booking {
+    margin-top: 20px;
+    max-width: 1500px;
+    margin-left:-60px;
+}
+#total-bill-adventures-booking h2 {
+    font-size: 30px;
+    color:#474849;
+    margin-left: 550px;
+
+}
+#adventure-booking-table {
+    border-collapse: collapse;
+    width: 98%;
+}
+
+#adventure-booking-table th,
+#adventure-booking-tabletd {
+    border: 1px solid #dddddd;
+    max-width: 250px;
+    text-align: center;
+    font-size: 15px;
+    padding: 8px;
+}
+
+#adventure-booking-table th {
+    background-color: #f2f2f2;
+}
+
+/* Styling alternating rows */
+#adventure-booking-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+/*Total adventure boooking bill area's styling*/
+.Bookadv-box {
+    max-width: 500px;
+    margin: 20px;
+    margin-left:0px;
+    background-color:#4d4e4f;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+.Bookadv-box h2 {
+    font-size: 20px;
+    margin-top: -10px;
+    margin-bottom: 10px;
+    color:#c5c7c8;
+}
+#TotalCostAdvText {
+    font-size: 15px;
+    color: #dddddd;
+}
+/*Styling for the promocode box*/
+#promoCode {
+    padding: 8px;
+    border: 1px solid #c5c7c8;
+    border-radius: 4px;
+    font-size: 16px;
+    text-align: center;
+    margin-top: 20px;
+    width: 200px;
+}
+/*Get Total Cost Button*/
+#getTotalCostBtn {
+    margin-left: 20px;
+    width: 150px;
+}
+/*Displaying total bill*/
+#totalBill{
+    margin-top: 15px;
+    font-size: 18px;
+    color:#474849;
+    font-style: italic;
+}
+/*Pricing table for rooms styling*/
+.table-container {
+    margin: 20px auto;
+    max-width: 1100px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+.title7 {
+    margin-top:50px;
+    text-align:center;
+    font-size:7vmin;
+    color:rgba(12, 12, 12, 0.764);
+}
+.H17 {
+    width:100px;
+    height:4px;
+    background:#331D2C;
+    margin:10px auto;
+    border-radius:5px;
+}
+table {
+    margin-top: 30px;
+    width: 90%;
+    border-collapse: collapse;
+    margin-left: 45px;
+}
+th, td {
+    font-style: italic;
+    font-size: large;
+    text-align:center;
+    border: 1px solid #dddddd;
+    padding: 0 20px;
+}
+th {
+    background-color: rgb(207, 207, 207);
+    color:#272829;
+    font-weight: bold;
+    font-size: 3vmin;
+    font-style: normal;
+}
+.tableImg {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    max-width: 350px;
+    max-height: 300px;
+    border-radius: 6px;
+}
+.para1 {
+    margin-top: 10px;
+    font-size: 2.3vmin;
+    color: #272829;
+}
+.para1 p {
+    margin-bottom: 12px;
+    line-height: 1.6;
+}  
+.para1 p::before {
+    content: "\2022";
+    margin-right: 8px;
+    color:#4d4e4f; 
+}
+tr:hover {
+    background-color: #f9f9f9;
+}
+/*Pricing table for adventures styling*/
+.table-container2 {
+    margin: 20px auto;
+    max-width: 1100px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+ }
+.title8 {
+    margin-top:20px;
+    text-align:center;
+    font-size:7vmin;
+    color:rgba(12, 12, 12, 0.764);
+}
+.H18 {
+    width:150px;
+    height:4px;
+    background:#331D2C;
+    margin:10px auto;
+    border-radius:5px;
+}
+.table2 {
+    width: 90%;
+    border-collapse: collapse;
+    margin-top: 40px;
+}
+th, td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 12px;
+}
+th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+    color:#4d4e4f;
+}
+.para2 {
+    margin-top: 10px;
+    font-size: 2.3vmin;
+    color: #272829;
+}
+.para2 p {
+    margin-bottom: 12px;
+    line-height: 1.6;
+  } 
+.para2 p::before {
+    content: "\2022"; /*bullet point*/
+    margin-right: 8px;
+    color:#4d4e4f;
+}
+/*Button to be redirected to the Adventures page*/
+.booking-btn{
+    display:inline-block;
+    background-color:#272829;
+    border:none;
+    padding:8px 15px;
+    width:150px;
+    color:#F5F5F5;
+    text-align:center;
 }
 /*Footer area's styling begins*/
 .footer{
@@ -1364,8 +1747,8 @@ br {
             height:auto;
         }
         .adventures-button {
-            font-size: 12px; /* Adjust the font size for smaller screens */
-            padding: 5px 10px; /* Adjust the padding as needed */
+            font-size: 12px;
+            padding: 5px 10px; 
             display:inline-block;
             width:125px;
         }
@@ -1704,50 +2087,253 @@ br {
 
             /*Bookin page's styling begins*/
             fieldset {
+                margin-top:20px;
                 padding: 5px;
                 width:50%;
                 margin-right: -10px; 
-                max-height: 550px;
+                max-height: 575px;
                 margin-left:-10px;
             }
             legend {
-                font-size: 20px;
+                font-size: 25px;
                 font-weight: bold;
                 color: #4d4e4f;
-                margin-bottom: -40px;
+                margin-bottom:20px;
             }
-            /*Booking page's styling ends*/
-
-
+            .bookBtn {
+                width: 100%; /* Adjust the width for mobile screens */
+                margin-top: 10px; /* Optional: add some spacing between buttons */;
+              }
+              .background-container1 {
+                position: relative;
+                width: 100%;
+                height: 100vh;
+                overflow: hidden;
+            }
+            .booking-section-h2{
+                font-style: normal;
+                font-size: 20px;
+            }
+            .adventure-section-h2{
+                font-style: normal;
+                font-size: 20px;
+              }
+              .booking-table,
+              .adventure-table {
+                border-collapse: collapse;
+                width: 90%;
+                margin-left: 10px;
+              }
+              .booking-table th,
+              .booking-table td,
+              .adventure-table th,
+              .adventure-table td {
+                border: 1px solid #dddddd;
+                padding: 8px;
+                text-align: center;
+                font-size: 20px;
+              }
+              .loyalty-box {
+                max-width: 350px;
+                margin-left: 20px;
+                background-color:#fff;
+                border-radius: 8px;
+                padding: 20px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            }
+            .loyalty-box h2 {
+                margin-top: -10px;
+                margin-bottom: 10px;
+                color:#474849;
+                font-size: 25px;
+            }
+            .table-container3 {
+                max-width: 90%;
+                margin-left: 20px;
+                padding: 20px;
+                background-color:#fff;
+                border-radius: 8px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            }
+            #total-bill-room-reservations h2 {
+                font-size: 30px;
+                color:#474849;
+                margin-left: 125px;
+        }
+        .H20 {
+            width:100px;
+            height:4px;
+            background:#331D2C;
+            margin:10px auto;
+            border-radius:5px;
+        }
+        #room-reservations-table {
+            overflow-x: scroll;
+            display: block;
+          }
+          #room-reservations-table {
+            border-collapse: collapse;
+            width: 90%;
+            margin-right: 15px;
+        }
+        .Roomcost-box {
+            max-width: 300px;
+            margin: 20px;
+            margin-left:0px;
+            background-color:#4d4e4f;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
         
+        .Roomcost-box h2 {
+            font-size: 15px;
+            margin-top: -10px;
+            margin-bottom: 10px;
+            color:#c5c7c8;
+        }
+        #TotalCostText {
+            font-size: 12px;
+            color: #dddddd;
+        }
+        #total-bill-adventures-booking h2 {
+            font-size: 30px;
+            color:#474849;
+            margin-left: 125px;
         
+        }
+        #adventure-booking-table {
+            border-collapse: collapse;
+            width: 90%;
+            margin-right: 15px;
+        }  
+        #adventure-booking-table {
+            overflow-x: scroll;
+            display: block;
+          }  
+          .Bookadv-box {
+            max-width: 300px;
+            margin: 20px;
+            margin-left:0px;
+            background-color:#4d4e4f;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
         
-        
-        
-        
+        .Bookadv-box h2 {
+            font-size: 15px;
+            margin-top: -10px;
+            margin-bottom: 10px;
+            color:#c5c7c8;
+        }
+        #TotalCostAdvText {
+            font-size: 12px;
+            color: #dddddd;
+        }
+        #promoCode {
+            padding: 8px;
+            border: 1px solid #c5c7c8;
+            border-radius: 4px;
+            font-size: 16px;
+            text-align: center;
+            margin-top: 20px;
+            width: 200px; /* Adjust width as needed */
+        }
+        .table-container {
+            margin: 20px auto;
+            max-width: 90%;
+            overflow-x: auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+          }
+        .table {
+            margin-top: 30px;
+            width: 30%;
+            border-collapse: collapse;
+            margin-right: 20px;
+          }
+          .tableImg {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            max-width: 350px;
+            max-height: 300px;
+            border-radius: 6px;
+          }
+          .para1{
+            font-size: 15px;
+          }
+          .table-container2 {
+            margin: 20px auto;
+            max-width: 90%;
+            overflow-x: auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+          }
+          .table2 {
+            width: 90%;
+            border-collapse: collapse;
+            margin-top: 40px;
+            margin-left: 15px;
+          }
+          .para2 p {
+            margin-bottom: 12px;
+            line-height: 1.6;
+            font-size: 15px;
+          }
+        }
+        /*Booking page's styling ends*/
 
-        
+                        
+            /*References*/
+    
+            /*Kayak Miami Beach image (2023) Booking.com. Available at: https://www.google.com/url?sa=i&amp;url=https%3A%2F%2Fwww.booking.com%2Fhotel%2Fus%2Fkayak-miami-beach.html&amp;psig=AOvVaw2StAZPeM6eBoZ0bPvZYhAh&amp;ust=1694365867597000&amp;source=images&amp;cd=vfe&amp;opi=89978449&amp;ved=0CBAQjhxqFwoTCNjP9pSDnoEDFQAAAAAdAAAAABAD (Accessed: 16 July 2023).*/
+            /*Heritance Hotels & Resorts. (n.d.). Hotel Gift Vouchers in Sri Lanka | Heritance Hotels | Flexible Hotel Stay. [online] Available at: https://vouchers.heritancehotels.com/ [Accessed 9 Sep. 2023].*/
+            /*Ocean Cliff Hotel Negril. (n.d.). Ocean Spa at Ocean Cliff Hotel | Negril, Jamaica Spa Retreat. [online] Available at: https://oceancliffhotel.com/ocean-cliff-spa/ [Accessed 9 Sep. 2023].*/
+            /*Unsplash (2022). Photo by Eugene Deshko on Unsplash. [online] unsplash.com. Available at: https://unsplash.com/photos/VJIw9ricd3g [Accessed 9 Sep. 2023].*/
+            /*uniqhotels.com. (n.d.). Alpin Panorama Hotel Hubertus - Epic Sky Pool. [online] Available at: https://www.uniqhotels.com/alpin-panorama-hotel-hubertus [Accessed 9 Sep. 2023].*/
+            /*Expert, T.L.T. (2018). Top 10 best city hotels in the world. [online] the Luxury Travel Expert. Available at: https://theluxurytravelexpert.com/2018/03/26/top-10-best-city-hotels-world/ [Accessed 9 Sep. 2023].*/
+            /*Andrew Brownsword Hotels. (n.d.). Locations — Andrew Brownsword Hotels - AA Hotel Group of the Year 2017-18. [online] Available at: https://www.brownswordhotels.co.uk/locations [Accessed 9 Sep. 2023].*/
+            /*www.jetwinghotels.com. (n.d.). Location. [online] Available at: https://www.jetwinghotels.com/jetwingyala/yala-national-park-hotels/ [Accessed 9 Sep. 2023].*/
+            /*www.jetwinghotels.com. (n.d.). Hotel Offers. [online] Available at: https://www.jetwinghotels.com/hotel-offers/.*/
+            /*Wholistic Living Spa. (n.d.). Master Bedroom | Wholistic Living Space. [online] Available at: https://www.wholisticlivingspace.com/master-bedroom [Accessed 9 Sep. 2023].*/
+            /*Malik, M. (2021). High Protein Veg Dinner Recipes. [online] Food Fitness & Fun. Available at: https://www.foodfitnessnfun.com/high-protein-veg-dinner-recipes/ [Accessed 9 Sep. 2023].*/
+            /*Chasing Drones New Zealand. (n.d.). Safety Inspection. [online] Available at: https://chasingdrones.co.nz/pages/safety-inspection [Accessed 9 Sep. 2023].*/
+            /*Staff, E. (2022). 10 Interior Design Ideas For Lounge Bar 2022. [online] DM Interior Studio. Available at: https://dminteriors.lk/interior-design-ideas-for-lounge-bar/ [Accessed 9 Sep. 2023].*/
+            /*Greater Miami & Miami Beach. (n.d.). Kayak Miami Beach. [online] Available at: https://www.miamiandbeaches.com/l/hotels/kayak-miami-beach/5345 [Accessed 9 Sep. 2023].*/
+            /*Greater Miami & Miami Beach. (n.d.). Kayak Miami Beach. [online] Available at: https://www.miamiandbeaches.com/l/hotels/kayak-miami-beach/5345 [Accessed 9 Sep. 2023].*/
+            /*Sandy Beach Trips. (n.d.). Beach Wedding. [online] Available at: https://www.sandybeachtrips.com/the-complete-guide-to-saying-i-do-in-the-maldives/engin-akyurt-mene7ockq4w-unsplash/ [Accessed 9 Sep. 2023].*/
 
 
-            
+            /*www.discoverlosangeles.com. (n.d.). Wake Up in West Hollywood | Discover Los Angeles. [online] Available at: https://www.discoverlosangeles.com/hotels/wake-up-in-west-hollywood [Accessed 9 Sep. 2023].*/
+            /*Hotel Park City. (n.d.). Hotel Park City | A Premier Utah Hotel Destination. [online] Available at: https://www.hotelparkcity.com/ [Accessed 9 Sep. 2023].*/
+            /*SkyscraperCity Forum. (2022). Bandar Lampung - Indonesia. [online] Available at: https://www.skyscrapercity.com/threads/bandar-lampung-indonesia.2302725/ [Accessed 9 Sep. 2023].*/
+            /*Houstonia Magazine. (n.d.). The 5-Star Resort in the Middle of the Jungle. [online] Available at: https://www.houstoniamag.com/travel-and-outdoors/2014/07/the-5-star-resort-in-the-middle-of-the-jungle-june-2014 [Accessed 9 Sep. 2023].*/
+            /*www.jetwinghotels.com. (n.d.). Gallery. [online] Available at: https://www.jetwinghotels.com/jetwingkandygallery/gallery/ [Accessed 9 Sep. 2023].*/
+            /*www.yalasafariholidays.com. (n.d.). Jetwing Yala | Updated Rates 2022. [online] Available at: https://www.yalasafariholidays.com/accomadation.php?id=Jetwing_Yala [Accessed 9 Sep. 2023].*/
+            /*www.chanalai.com. (n.d.). Chanalai Hillside Resort | Hotel Phuket | HOMEPAGE. [online] Available at: https://www.chanalai.com/en/hillside-resort-home.html [Accessed 9 Sep. 2023].*/
 
 
+            /*Roger Osbaldiston. (2020). Passion, Vision, Action. [online] Available at: https://rogerosbaldiston.com/articles/2020/8/11/passion-vision-action [Accessed 9 Sep. 2023].*/
+            /*Unsplash (2017). Photo by Jakob Owens on Unsplash. [online] unsplash.com. Available at: https://unsplash.com/photos/CNmVDfHIkxs [Accessed 9 Sep. 2023].*/
+            /*pxhere.com. (n.d.). Free Images : sea, vehicle, spray, sailing, jetski, sports, boating, windsurfing, watercraft, motorsport, water sport, jet ski, wind wave, surfing equipment and supplies, powerboating, personal water craft, f1 powerboat racing 4582x3055 - - 151016 - Free stock photos - PxHere. [online] Available at: https://pxhere.com/en/photo/151016 [Accessed 9 Sep. 2023].*/
+            /*www.villamimpiubud.com. (n.d.). Bali :: villamimpiubud.com. [online] Available at: https://www.villamimpiubud.com/en/restaurant/ [Accessed 9 Sep. 2023].*/
+
+            /*Lawrence, K. (2023). This Swanky Fine Dining Restaurant In Arizona Is Marvelously Moody. [online] OnlyInYourState®. Available at: https://www.onlyinyourstate.com/arizona/marvelously-moody-restaurant-az/ [Accessed 9 Sep. 2023].*/
+            /*Rathnayake, Z. (2023). Nuga Gama. [online] SilverKris. Available at: https://www.silverkris.com/guide/sri-lanka/cmb/eat-colombo/nuga-gama/ [Accessed 9 Sep. 2023].*/
+            /*Anon, (n.d.). Weddings & Honeymoon. [online] Available at: https://www.lindosgrand.com/weddings-honeymoon/ [Accessed 9 Sep. 2023].*/
+            /*Kadence. (n.d.). Business to Business Market Research Agency | Kadence Int’l. [online] Available at: https://kadence.com/sector/b2b/ [Accessed 9 Sep. 2023].*/
+            /*BizBash. (2022). New Venues in Seattle for Spring 2022 Meetings and Events. [online] Available at: https://www.bizbash.com/venues-destinations/united-states/seattle/media-gallery/22184660/new-venues-in-seattle-for-spring-2022-meetings-and-events [Accessed 9 Sep. 2023].*/
 
 
+            /*Fine Art America. (n.d.). The Gunwale Of A Sailboat by George Platt Lynes. [online] Available at: https://fineartamerica.com/featured/the-gunwale-of-a-sailboat-george-platt-lynes.html [Accessed 9 Sep. 2023].*/
 
+            /*References of the Menu links*/
 
-
-            
-
-
-        
-        
-        
-        
-        
-        
-}
-
-
-   
-
+            /*fireplate.lk. (n.d.). Fire Plate Restaurant. [online] Available at: https://fireplate.lk/menu.html [Accessed 10 Sep. 2023].*/
+            /*americanalasvegas.com. (n.d.). Americana Restaurant - Food Menu. [online] Available at: https://americanalasvegas.com/las-vegas-americana-restaurant-food-menu [Accessed 10 Sep. 2023].*/
+            /*https://www.chinesedragoncafe.com/meal.html*/
